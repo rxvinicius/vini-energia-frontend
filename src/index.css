@@ -56,6 +56,31 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+input {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #6366f1;
+  color: #c5c5c5;
+  font-size: 16px;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #d1d5db;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 #suppliers-container {
   display: flex;
   flex-wrap: wrap;
