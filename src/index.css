@@ -56,6 +56,49 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#suppliers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+#supplier {
+  background-color: #1f2937;
+  width: 250px;
+  height: 300px;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #6366f1;
+  margin-bottom: 30px;
+}
+
+#supplier #logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#supplier img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+}
+
+#supplier h2 {
+  color: #4f46e5;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+#supplier p {
+  color: #d1d5db;
+  line-height: 20px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
