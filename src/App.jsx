@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Supplier from './components/Supplier';
 
@@ -25,6 +25,20 @@ function App() {
   });
 
   const handleInputChange = (e) => setConsumption(e.target.value);
+
+  useEffect(() => {
+    const handleWheel = (event) => {
+      if (event.target.type === 'number') {
+        event.preventDefault();
+      }
+    };
+
+    document.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      document.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
 
   return (
     <div>
