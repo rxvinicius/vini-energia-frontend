@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Supplier from './components/Supplier';
 
-const GET_SUPPLIERS = gql`
+export const GET_SUPPLIERS = gql`
   query suppliers($consumption: Int!) {
     suppliers(consumption: $consumption) {
       id
