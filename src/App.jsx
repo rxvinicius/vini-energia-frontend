@@ -26,6 +26,32 @@ function App() {
 
   const handleInputChange = (e) => setConsumption(e.target.value);
 
+  const Content = () => {
+    if (error) {
+      return <h2>Erro: {error.message}</h2>;
+    }
+
+    if (loading) {
+      return <h2>Carregando...</h2>;
+    }
+
+    if (!data || data.suppliers.length === 0) {
+      return <h2>Nenhum fornecedor encontrado</h2>;
+    }
+
+    if (data && data.suppliers.length > 0) {
+      return (
+        <div id="suppliers-container">
+          {data.suppliers.map((supplier) => (
+            <Supplier supplier={supplier} key={supplier.id} />
+          ))}
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   useEffect(() => {
     const handleWheel = (event) => {
       if (event.target.type === 'number') {
@@ -49,15 +75,7 @@ function App() {
         value={consumption}
         onChange={handleInputChange}
       />
-      {loading && <p>Carregando...</p>}
-      {error && <p>Erro: {error.message}</p>}
-      {data && data.suppliers.length > 0 && (
-        <div id="suppliers-container">
-          {data.suppliers.map((supplier) => (
-            <Supplier supplier={supplier} key={supplier.id} />
-          ))}
-        </div>
-      )}
+      <Content />
     </div>
   );
 }
