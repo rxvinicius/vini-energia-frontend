@@ -17,6 +17,9 @@ export const GET_SUPPLIERS = gql`
   }
 `;
 
+const minLength = 0;
+const maxLength = 1000000;
+
 function App() {
   const [consumption, setConsumption] = useState('');
   const { loading, error, data } = useQuery(GET_SUPPLIERS, {
@@ -24,7 +27,22 @@ function App() {
     skip: !consumption,
   });
 
-  const handleInputChange = (e) => setConsumption(e.target.value);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+
+    if (value === '') {
+      return setConsumption('');
+    }
+
+    const isValidNumber =
+      (/^[1-9]\d*$/.test(value) || value === '0') &&
+      parseInt(value) >= minLength &&
+      parseInt(value) <= maxLength;
+
+    if (!isValidNumber) return;
+
+    setConsumption(value);
+  };
 
   const Content = () => {
     if (error) {
