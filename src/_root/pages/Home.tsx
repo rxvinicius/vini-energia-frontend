@@ -85,7 +85,7 @@ export default function Home() {
           <h1 className="h1-bold">Fornecedores</h1>
         </div>
 
-        <div className="flex flex-col gap-2 w-[270px]">
+        <div className="flex flex-col gap-2 md:w-[270px] w-[100%]">
           <Label htmlFor="consumption">Consumo mensal de energia (kWh)</Label>
 
           <div className="flex gap-1">

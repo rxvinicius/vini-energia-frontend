@@ -48,6 +48,12 @@ select:-webkit-autofill:focus {
     @apply box-border list-none p-0 m-0 scroll-smooth;
   }
 
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     @apply text-secondary min-h-screen font-inter;
   }
@@ -105,7 +111,7 @@ select:-webkit-autofill:focus {
 
   /* Home */
   .home-container {
-    @apply flex flex-col flex-1 items-start gap-10 py-10 px-5 md:px-8 lg:p-14 overflow-scroll custom-scrollbar;
+    @apply flex flex-col flex-1 items-start gap-10 py-16 px-5 md:px-8 lg:p-14 overflow-scroll custom-scrollbar;
   }
 
   .supplier-grid {
