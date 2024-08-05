@@ -8,9 +8,8 @@ RUN npm install
 
 COPY . .
 
-# Production environment
-ARG GRAPHQL_URI=https://clarke-energia-backend-8da448044f10.herokuapp.com
-ENV GRAPHQL_URI=${GRAPHQL_URI}
+ARG REACT_APP_GRAPHQL_URI=http://localhost:3000
+ENV REACT_APP_GRAPHQL_URI=${REACT_APP_GRAPHQL_URI}
 
 RUN npm run build
 
@@ -20,6 +19,6 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
