@@ -82,7 +82,7 @@ export default function Home() {
             width={46}
             height={46}
           />
-          <p className="h1-bold">Fornecedores</p>
+          <h1 className="h1-bold">Fornecedores</h1>
         </div>
 
         <div className="flex flex-col gap-2 w-[270px]">
