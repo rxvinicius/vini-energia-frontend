@@ -25,7 +25,7 @@ Repositório do Frontend do desafio técnico da Clarke Energia.
 ### Rodar com docker
 
 - `docker build -t clarke-energia-frontend .`
-- `docker run -p 4000:80 clarke-energia-frontend`
+- `docker run -p 4000:8080 clarke-energia-frontend`
 
 ## Testes
 
