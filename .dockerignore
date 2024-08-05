@@ -1,3 +1,34 @@
+# Ignorar arquivos e diretórios de node_modules
 node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignorar arquivos e diretórios de build locais
+build
 dist
-.env
+
+# Ignorar arquivos e diretórios de configuração
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignorar arquivos e diretórios de teste
+coverage
+__tests__
+__mocks__
+
+# Ignorar arquivos e diretórios específicos do editor
+.vscode
+.idea
+.DS_Store
+
+# Ignorar arquivos temporários e de cache
+tmp
+temp
+.cache
+.pnp
+.pnp.js
+
+# Ignorar outros arquivos indesejados
+*.log

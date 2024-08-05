@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00df7c;
+  --secondary: #000000;
+  --dark-1: #1f1f22;
+  --dark-2: #09090a;
+  --light-1: #ffffff;
+  --light-2: #f2f2f2;
+  --light-3: #7878a3;
+  --light-4: #5c5c7b;
+
+  background: var(--light-2);
+}
+
+/* Change autocomplete styles in Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  border: 1px solid unset;
+  -webkit-text-fill-color: var(--secondary);
+  -webkit-box-shadow: 0 0 0 30px var(--secondary) inset !important;
+  box-shadow: 0 0 0px 1000px unset inset;
+  transition: background-color 5000s ease-in-out 0s;
+  color: var(--secondary);
+}
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid unset;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0px 1000px unset inset;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white;
+}
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
+
+  body {
+    @apply text-secondary min-h-screen font-inter;
+  }
+}
+
+@layer utilities {
+  /* TYPOGRAPHY */
+  .h1-bold {
+    @apply text-[36px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .h2-bold {
+    @apply text-[30px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .h3-bold {
+    @apply text-[24px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .base-regular {
+    @apply text-[16px] font-normal leading-[180%];
+  }
+
+  /* UTILITIES */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--dark-2);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+
+  /* Home */
+  .home-container {
+    @apply flex flex-col flex-1 items-start gap-10 py-10 px-5 md:px-8 lg:p-14 overflow-scroll custom-scrollbar;
+  }
+
+  .supplier-grid {
+    @apply w-full grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7;
+  }
+
+  .supplier-card {
+    @apply flex-center flex-col gap-4 border border-dark-1 rounded-[20px] px-5 py-8;
+  }
+
+  .search-supplier {
+    @apply h-12 bg-light-2 border-dark-1 rounded-2xl placeholder:text-dark-1 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+  }
+
+  .no-data {
+    @apply text-dark-1 text-center w-full h-full;
+  }
+}
+
+@layer components {
+  /* SHADCN COMPONENTS */
+
+  /* Button */
+  .shad-button_primary {
+    @apply bg-primary hover:bg-primary text-secondary font-bold flex gap-2 rounded-full !important;
+  }
+}

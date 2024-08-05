@@ -1,3 +1,4 @@
+import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dotenv from 'dotenv';
@@ -8,6 +9,13 @@ dotenv.config();
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env.GRAPHQL_URI': JSON.stringify(process.env.GRAPHQL_URI),
+    'process.env.REACT_APP_GRAPHQL_URI': JSON.stringify(
+      process.env.REACT_APP_GRAPHQL_URI
+    ),
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
 });
