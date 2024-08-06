@@ -27,6 +27,7 @@ module.exports = {
         'light-2': 'var(--light-2)',
         'light-3': 'var(--light-3)',
         'light-4': 'var(--light-4)',
+        inactive: 'var(--inactive)',
       },
       screens: {
         xs: '480px',

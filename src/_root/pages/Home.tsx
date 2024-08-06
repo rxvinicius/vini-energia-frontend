@@ -1,33 +1,42 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-import { Loader, SupplierCard } from '@/components/shared';
+import { Loader, SupplierCard, Pagination } from '@/components/shared';
 import { Input, Label } from '@/components/ui';
 import { energySuppliersLogo } from '@/assets';
 import { SupplierProps } from '@/types';
 
 export const GET_SUPPLIERS = gql`
-  query suppliers($consumption: Int!) {
-    suppliers(consumption: $consumption) {
-      id
-      name
-      logo
-      state
-      costPerKwh
-      minKwh
-      totalClients
-      averageRating
+  query suppliers($consumption: Int!, $page: Int!, $pageSize: Int!) {
+    suppliers(consumption: $consumption, page: $page, pageSize: $pageSize) {
+      data {
+        id
+        name
+        logo
+        state
+        costPerKwh
+        minKwh
+        totalClients
+        averageRating
+      }
+      page
+      pageSize
+      total
     }
   }
 `;
 
-const minLength = 0;
+const minLength = 1;
 const maxLength = 1000000;
+const initialPage = 1;
+const pageSize = 8;
 
 export default function Home() {
   const [consumption, setConsumption] = useState('');
+  const [page, setPage] = useState(initialPage);
+
   const { loading, error, data } = useQuery(GET_SUPPLIERS, {
-    variables: { consumption: parseInt(consumption) },
+    variables: { consumption: parseInt(consumption), page, pageSize },
     skip: !consumption,
   });
 
@@ -48,6 +57,10 @@ export default function Home() {
     setConsumption(value);
   };
 
+  const handlePageChange = (newPage: number) => setPage(newPage);
+
+  useEffect(() => setPage(initialPage), [consumption]);
+
   const Content = () => {
     if (error) {
       return <p className="no-data">Erro ao buscar fornecedores</p>;
@@ -57,15 +70,25 @@ export default function Home() {
 
     if (!consumption) return;
 
-    if (data && data.suppliers.length > 0) {
+    if (data && data.suppliers.data.length > 0) {
       return (
-        <ul className="supplier-grid">
-          {data?.suppliers.map((supplier: SupplierProps) => (
-            <li key={supplier.id}>
-              <SupplierCard supplier={supplier} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="supplier-grid">
+            {data.suppliers.data.map((supplier: SupplierProps) => (
+              <li key={supplier.id}>
+                <SupplierCard supplier={supplier} />
+              </li>
+            ))}
+          </ul>
+
+          <Pagination
+            page={data.suppliers.page}
+            pageSize={data.suppliers.pageSize}
+            initialPage={initialPage}
+            total={data.suppliers.total}
+            onPageChange={handlePageChange}
+          />
+        </>
       );
     }
 

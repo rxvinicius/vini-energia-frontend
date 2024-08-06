@@ -13,6 +13,7 @@
   --light-2: #f2f2f2;
   --light-3: #7878a3;
   --light-4: #5c5c7b;
+  --inactive: #787575;
 
   background: var(--light-2);
 }
