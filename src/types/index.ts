@@ -1,5 +1,5 @@
 export type SupplierProps = {
-  id: string;
+  _id: string;
   name: string;
   logo: string;
   state: string;

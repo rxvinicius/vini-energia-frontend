@@ -13,7 +13,7 @@ const mocks = [
         suppliers: {
           data: [
             {
-              id: '1',
+              _id: '1',
               name: 'Fornecedor 1',
               logo: 'logo1.png',
               state: 'SP',
@@ -40,7 +40,7 @@ const mocks = [
         suppliers: {
           data: [
             {
-              id: '1',
+              _id: '1',
               name: 'Fornecedor 1',
               logo: 'logo1.png',
               state: 'SP',
@@ -50,7 +50,7 @@ const mocks = [
               averageRating: 4.5,
             },
             {
-              id: '2',
+              _id: '2',
               name: 'Fornecedor 2',
               logo: 'logo2.png',
               state: 'RJ',

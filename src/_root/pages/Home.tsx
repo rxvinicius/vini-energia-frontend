@@ -10,7 +10,7 @@ export const GET_SUPPLIERS = gql`
   query suppliers($consumption: Int!, $page: Int!, $pageSize: Int!) {
     suppliers(consumption: $consumption, page: $page, pageSize: $pageSize) {
       data {
-        id
+        _id
         name
         logo
         state
@@ -75,7 +75,7 @@ export default function Home() {
         <>
           <ul className="supplier-grid">
             {data.suppliers.data.map((supplier: SupplierProps) => (
-              <li key={supplier.id}>
+              <li key={supplier._id}>
                 <SupplierCard supplier={supplier} />
               </li>
             ))}
