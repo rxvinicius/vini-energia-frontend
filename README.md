@@ -1,8 +1,8 @@
 # Vini Energia Frontend
 
-Projeto desenvolvido para o desafio técnico de um processo seletivo que participei
+Projeto desenvolvido para o desafio técnico de um processo seletivo que participei.
 
-👉 <a href='https://clarke-energia-frontend.vercel.app'>Demo</a>
+👉 <a href='https://vini-energia-frontend.vercel.app'>Demo</a>
 
 ### Principais Tecnologias
 
@@ -22,7 +22,7 @@ Projeto desenvolvido para o desafio técnico de um processo seletivo que partici
 - Acesse a raiz do repositório
 - `npm install` para instalar dependências
 - `npm run dev` para iniciar um servidor de desenvolvimento a partir do terminal
-- Clone o [backend](https://github.com/rxvinicius/clarke-energia-backend) e siga as instruções do repositório
+- Clone o [backend](https://github.com/rxvinicius/vini-energia-backend) e siga as instruções do repositório
 - Renomeie o arquivo `.env.example` para `.env`
 
 ### Rodar com docker
