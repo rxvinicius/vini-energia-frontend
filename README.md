@@ -1,6 +1,6 @@
-# Clarke Energia Frontend
+# Vini Energia Frontend
 
-Repositório do Frontend do desafio técnico da Clarke Energia.
+Projeto desenvolvido para o desafio técnico de um processo seletivo que participei
 
 👉 <a href='https://clarke-energia-frontend.vercel.app'>Demo</a>
 
@@ -10,6 +10,9 @@ Repositório do Frontend do desafio técnico da Clarke Energia.
 - **Vite**: Ferramenta de construção de frontend rápida.
 - **TypeScript**: Superset de JavaScript que adiciona tipos estáticos.
 - **Apollo Client**: Cliente GraphQL para gerenciar dados com GraphQL.
+- **TailwindCSS**: Framework de CSS utilitário para estilização rápida e responsiva.
+- **Jest**: Framework de testes em JavaScript.
+- **Testing Library**: Conjunto de utilitários para testar componentes React.
 
 ## Instalação
 
@@ -24,8 +27,8 @@ Repositório do Frontend do desafio técnico da Clarke Energia.
 
 ### Rodar com docker
 
-- `docker build -t clarke-energia-frontend .`
-- `docker run -p 4000:8080 clarke-energia-frontend`
+- `docker build -t vini-energia-front .`
+- `docker run -p 4000:8080 vini-energia-front`
 
 ## Testes
 
