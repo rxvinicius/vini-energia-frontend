@@ -1,39 +1,17 @@
-import { ChangeEvent, useState, useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { Loader, SupplierCard, Pagination } from '@/components/shared';
 import { Input, Label } from '@/components/ui';
 import { energySuppliersLogo } from '@/assets';
 import { SupplierProps } from '@/types';
-import useSuppliers from '@/hooks/useSuppliers';
-
-const minLength = 1;
-const maxLength = 1000000;
-const initialPage = 1;
+import { useConsumption, usePagination, useSuppliers } from '@/hooks';
 
 export default function Home() {
-  const [consumption, setConsumption] = useState('');
-  const [page, setPage] = useState(initialPage);
-
+  const { consumption, minLength, maxLength, handleChangeConsumption } =
+    useConsumption();
+  const { page, initialPage, handlePageChange } = usePagination();
   const { loading, error, data } = useSuppliers(consumption, page);
 
-  const handleSearchValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      return setConsumption('');
-    }
-
-    const isValidNumber =
-      (/^[1-9]\d*$/.test(value) || value === '0') &&
-      parseInt(value) >= minLength &&
-      parseInt(value) <= maxLength;
-
-    if (!isValidNumber) return;
-
-    setConsumption(value);
-  }, []);
-
-  const handlePageChange = (newPage: number) => setPage(newPage);
-
-  useEffect(() => setPage(initialPage), [consumption]);
+  useEffect(() => handlePageChange(initialPage), [consumption]);
 
   const Content = () => {
     if (error) {
@@ -95,7 +73,7 @@ export default function Home() {
               placeholder="Ex: 2000 (kWh)"
               className="search-supplier"
               autoComplete="off"
-              onChange={handleSearchValue}
+              onChange={handleChangeConsumption}
             />
           </div>
         </div>

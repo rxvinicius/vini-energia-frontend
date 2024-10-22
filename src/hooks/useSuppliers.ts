@@ -20,9 +20,8 @@ const GET_SUPPLIERS = gql`
   }
 `;
 
-const pageSize = 8;
-
 const useSuppliers = (consumption: string, page: number) => {
+  const pageSize = 8;
   const { loading, error, data } = useQuery(GET_SUPPLIERS, {
     variables: { consumption: parseInt(consumption), page, pageSize },
     skip: !consumption,
@@ -33,4 +32,4 @@ const useSuppliers = (consumption: string, page: number) => {
 
 export default useSuppliers;
 
-export { GET_SUPPLIERS, pageSize };
+export { GET_SUPPLIERS };
