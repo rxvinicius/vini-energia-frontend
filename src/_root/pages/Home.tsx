@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useEffect } from 'react';
+import { ChangeEvent, useState, useEffect, useCallback } from 'react';
 import { Loader, SupplierCard, Pagination } from '@/components/shared';
 import { Input, Label } from '@/components/ui';
 import { energySuppliersLogo } from '@/assets';
@@ -15,9 +15,8 @@ export default function Home() {
 
   const { loading, error, data } = useSuppliers(consumption, page);
 
-  const handleSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-
     if (value === '') {
       return setConsumption('');
     }
@@ -30,7 +29,7 @@ export default function Home() {
     if (!isValidNumber) return;
 
     setConsumption(value);
-  };
+  }, []);
 
   const handlePageChange = (newPage: number) => setPage(newPage);
 
