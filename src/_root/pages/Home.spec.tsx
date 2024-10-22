@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
-import Home, { GET_SUPPLIERS } from './Home';
+import { GET_SUPPLIERS } from '@/hooks/useSuppliers';
+import Home from './Home';
 
 const mocks = [
   {

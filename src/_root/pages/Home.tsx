@@ -1,44 +1,19 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
-
+import { ChangeEvent, useState, useEffect } from 'react';
 import { Loader, SupplierCard, Pagination } from '@/components/shared';
 import { Input, Label } from '@/components/ui';
 import { energySuppliersLogo } from '@/assets';
 import { SupplierProps } from '@/types';
-
-export const GET_SUPPLIERS = gql`
-  query suppliers($consumption: Int!, $page: Int!, $pageSize: Int!) {
-    suppliers(consumption: $consumption, page: $page, pageSize: $pageSize) {
-      data {
-        _id
-        name
-        logo
-        state
-        costPerKwh
-        minKwh
-        totalClients
-        averageRating
-      }
-      page
-      pageSize
-      total
-    }
-  }
-`;
+import useSuppliers from '@/hooks/useSuppliers';
 
 const minLength = 1;
 const maxLength = 1000000;
 const initialPage = 1;
-const pageSize = 8;
 
 export default function Home() {
   const [consumption, setConsumption] = useState('');
   const [page, setPage] = useState(initialPage);
 
-  const { loading, error, data } = useQuery(GET_SUPPLIERS, {
-    variables: { consumption: parseInt(consumption), page, pageSize },
-    skip: !consumption,
-  });
+  const { loading, error, data } = useSuppliers(consumption, page);
 
   const handleSearchValue = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
