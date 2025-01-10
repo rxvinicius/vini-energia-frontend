@@ -1,17 +1,14 @@
-import { Routes, Route } from 'react-router-dom';
-
-import RootLayout from './_root/RootLayout';
-import Home from './_root/pages/Home';
+import AppRoutes from './routes';
+import { Toaster } from './components/ui/toaster';
 import './globals.css';
 
-const App = () => (
-  <main className="flex h-screen">
-    <Routes>
-      <Route element={<RootLayout />}>
-        <Route index element={<Home />} />
-      </Route>
-    </Routes>
-  </main>
-);
+const App = () => {
+  return (
+    <main className="flex h-screen">
+      <AppRoutes />
+      <Toaster />
+    </main>
+  );
+};
 
 export default App;

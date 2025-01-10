@@ -9,3 +9,9 @@ export type SupplierProps = {
   averageRating: number;
   [key: string]: string | number;
 };
+
+export type IUser = {
+  id: string;
+  name: string;
+  email: string;
+};
