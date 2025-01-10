@@ -31,12 +31,7 @@ const SupplierCard = ({ supplier }: SupplierCardProps) => (
 
         return (
           <div key={fieldKey} className="flex-start gap-2 justify-start w-full">
-            <img
-              src={icon}
-              alt={`${label} icon`}
-              width={17}
-              className="invert-white"
-            />
+            <img src={icon} alt={`${label} icon`} width={17} />
             <p className="base-regular text-dark-1 text-left line-clamp-1">
               {label}: {value}
             </p>

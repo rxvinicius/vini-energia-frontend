@@ -1,4 +1,4 @@
-import { loaderIcon } from '@/assets';
+import { loaderIcon } from '@/assets/icons';
 
 type LoaderProps = {
   size?: 'small' | 'medium';
