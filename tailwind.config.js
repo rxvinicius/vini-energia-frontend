@@ -19,7 +19,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: 'var(--primary)',
+        primary: {
+          DEFAULT: 'var(--primary)',
+          light: 'var(--primary-light)',
+          dark: 'var(--primary-dark)',
+        },
         secondary: 'var(--secondary)',
         'dark-1': 'var(--dark-1)',
         'dark-2': 'var(--dark-2)',
@@ -28,6 +32,8 @@ module.exports = {
         'light-3': 'var(--light-3)',
         'light-4': 'var(--light-4)',
         inactive: 'var(--inactive)',
+        red: 'var(--red)',
+        green: 'var(--green)',
       },
       screens: {
         xs: '480px',

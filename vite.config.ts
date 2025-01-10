@@ -12,6 +12,9 @@ export default defineConfig({
     'process.env.REACT_APP_GRAPHQL_URI': JSON.stringify(
       process.env.REACT_APP_GRAPHQL_URI
     ),
+    'process.env.REACT_APP_SPRING_BOOT_API_URL': JSON.stringify(
+      process.env.REACT_APP_SPRING_BOOT_API_URL
+    ),
   },
   resolve: {
     alias: {

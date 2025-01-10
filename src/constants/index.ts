@@ -4,7 +4,7 @@ import {
   kilowattIcon,
   locationIcon,
   ratingIcon,
-} from '@/assets';
+} from '@/assets/icons';
 
 const supplierFields = {
   state: {

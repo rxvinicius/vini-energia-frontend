@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Loader, SupplierCard, Pagination } from '@/components/shared';
 import { Input, Label } from '@/components/ui';
-import { energySuppliersLogo } from '@/assets';
+import { energySuppliersLogo } from '@/assets/icons';
 import { SupplierProps } from '@/types';
 import { useConsumption, usePagination, useSuppliers } from '@/hooks';
 
@@ -71,7 +71,7 @@ export default function Home() {
               min={minLength}
               max={maxLength}
               placeholder="Ex: 2000 (kWh)"
-              className="search-supplier"
+              className="shad-input"
               autoComplete="off"
               onChange={handleChangeConsumption}
             />

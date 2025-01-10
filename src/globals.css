@@ -6,6 +6,8 @@
 
 :root {
   --primary: #00df7c;
+  --primary-dark: #005931;
+  --primary-light: #bef4c1;
   --secondary: #000000;
   --dark-1: #1f1f22;
   --dark-2: #09090a;
@@ -14,6 +16,8 @@
   --light-3: #7878a3;
   --light-4: #5c5c7b;
   --inactive: #787575;
+  --red: #ff5a5a;
+  --green: #4bb543;
 
   background: var(--light-2);
 }
@@ -78,6 +82,10 @@ select:-webkit-autofill:focus {
     @apply text-[16px] font-normal leading-[180%];
   }
 
+  .small-medium {
+    @apply text-[14px] font-medium leading-[140%];
+  }
+
   /* UTILITIES */
   .flex-center {
     @apply flex justify-center items-center;
@@ -123,12 +131,24 @@ select:-webkit-autofill:focus {
     @apply flex-center flex-col gap-4 border border-dark-1 rounded-[20px] px-5 py-8;
   }
 
-  .search-supplier {
-    @apply h-12 bg-light-2 border-dark-1 rounded-2xl placeholder:text-dark-1 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
-  }
-
   .no-data {
     @apply text-dark-1 text-center w-full h-full;
+  }
+
+  .invert-white {
+    @apply invert brightness-0 transition;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-dark to-primary-light;
+  }
+
+  .gradient-dark {
+    @apply bg-gradient-to-r from-primary-dark to-primary;
+  }
+
+  .gradient-light {
+    @apply bg-gradient-to-r from-primary-dark via-primary to-primary-light;
   }
 }
 
@@ -138,5 +158,10 @@ select:-webkit-autofill:focus {
   /* Button */
   .shad-button_primary {
     @apply bg-primary hover:bg-primary text-secondary font-bold flex gap-2 rounded-full !important;
+  }
+
+  /* Input */
+  .shad-input {
+    @apply h-12 bg-light-2 border-dark-1 rounded-2xl placeholder:text-dark-1 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
   }
 }
