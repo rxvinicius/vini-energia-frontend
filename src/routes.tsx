@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logout } from './redux/user/slice';
@@ -12,6 +12,7 @@ import Home from './_root/pages/Home';
 
 export default function AppRoutes() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const { isAuthenticated: isLoggedIn, token } = useSelector(getUser);
 
@@ -21,13 +22,13 @@ export default function AppRoutes() {
       return;
     }
 
-    if (!isLoggedIn) {
+    if (!isLoggedIn && location.pathname !== '/sign-up') {
       navigate('/sign-in');
       return;
     }
 
-    navigate('/');
-  }, [token, isLoggedIn, dispatch, navigate]);
+    if (isLoggedIn) navigate('/');
+  }, [token, isLoggedIn]);
 
   return (
     <Routes>
