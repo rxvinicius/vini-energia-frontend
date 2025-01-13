@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { z } from 'zod';
-
 import { zodResolver } from '@hookform/resolvers/zod';
+
 import {
   Form,
   FormControl,
@@ -20,6 +20,7 @@ import { useToast } from '@/hooks/use-toast';
 import { SigninValidation } from '@/lib/validations/user';
 import { login } from '@/redux/user/slice';
 import authService from '@/api/rest/authService';
+import PasswordInput from '../components/PasswordInput';
 
 import { projectLogo } from '../../assets/images';
 
@@ -79,7 +80,6 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        {/* <img src={projectLogo} alt="Logo da empresa" width={320} /> */}
         <img src={projectLogo} alt="Logo da empresa" width={220} />
 
         <h2 className="h2-bold">Faça login na sua conta</h2>
@@ -116,7 +116,7 @@ const SigninForm = () => {
               <FormItem>
                 <FormLabel>Senha</FormLabel>
                 <FormControl>
-                  <Input type="password" className="shad-input" {...field} />
+                  <PasswordInput {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

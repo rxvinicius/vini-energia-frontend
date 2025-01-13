@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
-
 import { zodResolver } from '@hookform/resolvers/zod';
+
 import {
   Form,
   FormControl,
@@ -17,10 +17,12 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Loader from '@/components/shared/Loader';
 import { SignupValidation } from '@/lib/validations/user';
-import { projectLogo } from '../../assets/images';
 import authService from '@/api/rest/authService';
 import { login } from '@/redux/user/slice';
 import useToasts from '@/hooks/useToasts';
+import PasswordInput from '../components/PasswordInput';
+
+import { projectLogo } from '@/assets/images';
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -127,7 +129,7 @@ const SignupForm = () => {
               <FormItem>
                 <FormLabel>Senha</FormLabel>
                 <FormControl>
-                  <Input type="password" className="shad-input" {...field} />
+                  <PasswordInput {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
