@@ -1,5 +1,7 @@
 export { default as closeIcon } from './close.svg';
 export { default as energySuppliersLogo } from './electricity.png';
+export { default as eyeSlashIcon } from './eye-slash.svg';
+export { default as eyeIcon } from './eye.svg';
 export { default as homeIcon } from './home.svg';
 export { default as kilowattIcon } from './lightning.png';
 export { default as loaderIcon } from './loader.svg';
